@@ -4,6 +4,9 @@ import {images} from '../../constants'
 import FormField from '../../components/FormField'
 import CustomButton from '../../components/CustomButton'
 import {Link} from 'expo-router'
+import { createUser } from '../../lib/appwrite'
+import { useGlobalContext } from '../../context/GlobalProvider'; // Import your global context hook
+
 const SignUp = () => {
   const [form, setForm] = useState({
     username: '',
@@ -12,10 +15,26 @@ const SignUp = () => {
   })
 
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const { setUser, setIsLoggedIn } = useGlobalContext(); // Destructure setUser and setIsLoggedIn from global context
 
-  const submit = () => {
+  const submit = async () => {
+    if (!form.username || !form.email || !form.password) 
+    {
+      Alert.alert('Error', 'Please fill in all the fields')
+    }
+    setIsSubmitting(true);
 
-  }
+    try {
+      const result = await createUser(form.email, form.password, form.username)
+      setUser(result);
+      setIsLoggedIn(true);
+      router.replace('/home')
+    } catch (error) {
+      Alert.alert('Error', error.message)
+    } finally {
+      setIsSubmitting(false)
+    }
+  };
   return (
     <SafeAreaView className="bg-primary h-full">
       <ScrollView>
@@ -27,7 +46,7 @@ const SignUp = () => {
           <FormField 
             title="Username"
             value={form.username}
-            handleChangeText={(e) => setForm({ ... form, email: e})}
+            handleChangeText={(e) => setForm({ ... form, username: e})}
             otherStyles="mt-7"
             keyboard-type="username"
           />
