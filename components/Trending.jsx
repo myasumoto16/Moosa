@@ -42,7 +42,7 @@ const TrendingItem = ( {activeItem, item} ) => {
   // }
   // console.log(item.video)
   const youtubeId = getYouTubeVideoId(item.video)
-  console.log(item.video)
+  // console.log(item.video)
   // console.log(youtubeId)
   return (
     <Animatable.View

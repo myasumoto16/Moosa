@@ -1,10 +1,10 @@
-import { View, Text, Image, SafeAreaView,ScrollView } from 'react-native'
+import { View, Text, Image, SafeAreaView,ScrollView, Alert } from 'react-native'
 import React, {useState} from 'react'
 import {images} from '../../constants'
 import FormField from '../../components/FormField'
 import CustomButton from '../../components/CustomButton'
-import {Link} from 'expo-router'
-import { createUser } from '../../lib/appwrite'
+import {Link, router} from 'expo-router'
+import { createUser, signIn } from '../../lib/appwrite'
 import { useGlobalContext } from '../../context/GlobalProvider'; // Import your global context hook
 
 const SignUp = () => {
@@ -28,6 +28,7 @@ const SignUp = () => {
       const result = await createUser(form.email, form.password, form.username)
       setUser(result);
       setIsLoggedIn(true);
+      console.log('routing to home')
       router.replace('/home')
     } catch (error) {
       Alert.alert('Error', error.message)

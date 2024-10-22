@@ -12,6 +12,7 @@ const GlobalProvider = ({ children }) => {
     useEffect(() => {
         getCurrentUser()
             .then((res) => {
+                console.log('res: ', res)
                 if (res) {
                     setIsLoggedIn(true)
                     setUser(res)
@@ -28,6 +29,8 @@ const GlobalProvider = ({ children }) => {
                 setIsLoading(false);
             })
     }, []);
+
+    console.log('userId in global' + user)
     return (
         <GlobalContext.Provider 
             value={{

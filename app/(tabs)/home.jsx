@@ -1,4 +1,4 @@
-import { View, Text, FlatList, Image, RefreshControl } from 'react-native'
+import { View, Text, FlatList, Image, RefreshControl, TouchableOpacity } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import {images} from '../../constants'
@@ -8,8 +8,11 @@ import EmptyState from '../../components/EmptyState'
 import { getAllPosts, getLatestPosts } from '../../lib/appwrite'
 import useAppwrite from '../../lib/useAppwrite'
 import VideoCard from '../../components/VideoCard'
-const Home = () => {
+import { useGlobalContext } from '../../context/GlobalProvider'
+import { router } from 'expo-router'
 
+const Home = () => {
+  const { user } = useGlobalContext();
   const { data: posts, isLoading, refetch } = useAppwrite(getAllPosts);
   const { data: latestPosts } = useAppwrite(getLatestPosts)
 
@@ -40,16 +43,18 @@ const Home = () => {
                   Welcome Back
                 </Text>
                 <Text className="text-2xl font-psemibold text-white">
-                  Moosa
+                  {user?.username}
                 </Text> 
               </View>
 
-              <View className="mt-1.5">
+              <TouchableOpacity className="mt-1.5" onPress={() => {
+                router.push('/profile')
+              }}>
                 <Image 
                  source={images.logoSmall}
                  className="w-9 h-10"
                  resizeMode='contain'/>
-              </View>
+              </TouchableOpacity>
             </View>
             <SearchInput />
 
