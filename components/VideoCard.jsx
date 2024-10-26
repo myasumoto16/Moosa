@@ -6,13 +6,13 @@ import useAppwrite from '../lib/useAppwrite'
 import { addLike, isVideoLikedByUser, removeLike, updateLike } from '../lib/appwrite'
 import { useGlobalContext } from '../context/GlobalProvider'
 
-const VideoCard = ({ video: {$id, title, thumbnail, videoUri, users: {username, avatar}} }) => {
+const VideoCard = ({ video: {$id, title, thumbnail, video, users: {username, avatar}} }) => {
     const { user } = useGlobalContext();
     const[playing, setPlaying] = useState(false)
     const [liked, setLiked] = useState(async () => await isVideoLikedByUser(user.$id, $id));
     const [likesId, setlikesId] = useState(null)
 
-    console.log(user.$id, $id)
+    // console.log(user.$id, $id)
 
     useEffect(() => {
         const checkIfLiked = async () => {
@@ -68,7 +68,7 @@ const VideoCard = ({ video: {$id, title, thumbnail, videoUri, users: {username, 
         {playing? (
             <View className="w-full h-60 mt-3 overflow-hidden">
                     <Video 
-                        source={{ uri: videoUri }} 
+                        source={{ uri: video }} 
                         style={{ width: '100%', height: '100%' }} // Maintain size consistency
                         resizeMode={ResizeMode.CONTAIN} 
                         useNativeControls 
