@@ -17,7 +17,7 @@ export default function App() {
         <View className="w-full justify-center items-center px-4 min-h-[85vh]">
           <Image 
             source={images.logo}
-            className="w-[130px] h-[84px]"
+            className="w-[195px] h-[84px]"
             resizeMode="contain"
           />
 
@@ -28,9 +28,9 @@ export default function App() {
           />
  
           <View className="relative mt-5">
-            <Text className="text-3xl text-white font-bold text-center">
+            <Text className="text-3xl text-black font-bold text-center">
               Dicover Endless Cuteness with {' '}
-              <Text className="text-secondary-200">Moosa</Text>
+              <Text className="text-third">Moosa</Text>
             </Text>
             <Image 
               source={images.path}
@@ -38,7 +38,7 @@ export default function App() {
               resizeMode="contain"
             />
           </View>
-          <Text className="text-sm font-pregular text-gray-100 mt-7 text-center" >Where creativity meets cuteness: embark on a journey of limitless exploration with Moosa</Text>
+          <Text className="text-sm font-pregular text-secondary-200 mt-7 text-center" >Where creativity meets cuteness: embark on a journey of limitless exploration with Moosa</Text>
           <CustomButton 
             title="Continue with Email"
             handlePress={() => router.push('/sign-in')}
@@ -47,7 +47,7 @@ export default function App() {
         </View>
       </ScrollView>
 
-      <StatusBar backgroundColor='#161622' style='light'/>
+      <StatusBar backgroundColor='#FFFEE0' style='light'/>
     </SafeAreaView>
   );
 }

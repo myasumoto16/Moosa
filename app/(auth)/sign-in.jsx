@@ -26,11 +26,13 @@ const SignIn = () => {
     try {
       await signIn(form.email, form.password)
       const result = await getCurrentUser();
+      // console.log('result in sign in: ' + result)
       setUser(result);
       setIsLoggedIn(true);
       router.replace('/home')
     } catch (error) {
       Alert.alert('Error', error.message);
+      return
     } finally {
       setIsSubmitting(false)
     }
@@ -41,7 +43,7 @@ const SignIn = () => {
         <View className="w-full justify-center px-4 my-6 min-h-[80vh]">
           <Image source={images.logo} resizeMode='contain' className='w-[115px] h-[35px]'/>
 
-          <Text className="text-2xl text-white text-semibold mt-10 font-psemibold">Log In to Moosa</Text>
+          <Text className="text-2xl text-black text-semibold mt-10 font-psemibold">Log In to Moosa</Text>
 
           <FormField 
             title="Email"
