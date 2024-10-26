@@ -7,11 +7,10 @@ import { addLike, isVideoLikedByUser, removeLike, updateLike } from '../lib/appw
 import { useGlobalContext } from '../context/GlobalProvider'
 
 const VideoCard = ({ video: {$id, title, thumbnail, videoUri, users: {username, avatar}} }) => {
-    // console.log()
+    const { user } = useGlobalContext();
     const[playing, setPlaying] = useState(false)
     const [liked, setLiked] = useState(async () => await isVideoLikedByUser(user.$id, $id));
     const [likesId, setlikesId] = useState(null)
-    const { user } = useGlobalContext();
 
     console.log(user.$id, $id)
 
