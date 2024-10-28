@@ -14,6 +14,7 @@
     "expo-av": "^14.0.7",
     "expo-constants": "~16.0.2",
     "expo-document-picker": "^12.0.2",
+    "expo-image-picker": "~15.0.7",
     "expo-linking": "~6.3.1",
     "expo-router": "~3.5.23",
     "expo-status-bar": "~1.12.1",
@@ -27,10 +28,11 @@
     "react-native-screens": "3.31.1",
     "react-native-url-polyfill": "^2.0.0",
     "react-native-web": "~0.19.10",
+    "react-native-web-webview": "^1.0.2",
     "react-native-webview": "13.8.6",
     "react-native-youtube-iframe": "^2.3.0",
     "typescript": "~5.3.3",
-    "expo-image-picker": "~15.0.7"
+    "undefined": "react-navigation/native"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

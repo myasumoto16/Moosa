@@ -29,10 +29,7 @@ const VideoCard = ({ video: {$id, title, thumbnail, video, users: {username, ava
         checkIfLiked();
     }, [user.$id, $id]);
 
-    const handleLikeToggle = async () => {
-        // Here you could implement logic to toggle the like state
-        // e.g., add or remove a like from the likes table
-        
+    const handleLikeToggle = async () => {        
         if (liked) {
             removeLike(likesId)
             setlikesId(null)
@@ -41,7 +38,7 @@ const VideoCard = ({ video: {$id, title, thumbnail, video, users: {username, ava
             const newLikesId = addLike($id, user.$id)
             setlikesId(newLikesId)
         }
-        setLiked(!liked); // This is just for UI state. Update the database as needed.
+        setLiked(!liked); 
     };
     // console.log(liked)
 
@@ -69,7 +66,7 @@ const VideoCard = ({ video: {$id, title, thumbnail, video, users: {username, ava
             <View className="w-full h-60 mt-3 overflow-hidden">
                     <Video 
                         source={{ uri: video }} 
-                        style={{ width: '100%', height: '100%' }} // Maintain size consistency
+                        style={{ width: '100%', height: '100%' }}
                         resizeMode={ResizeMode.CONTAIN} 
                         useNativeControls 
                         shouldPlay 

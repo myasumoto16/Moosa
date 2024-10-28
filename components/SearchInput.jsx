@@ -7,9 +7,9 @@ export default function SearchInput() {
   const pathname = usePathname();
   const [query, setQuery] = useState('')
   return (
-      <View className="border-2 border-black-100 h-16 w-full px-4 bg-black-100 rounded-2xl focus:border-secondary items-center flex-row -space-x-48">
+      <View className="border-2 border-gray-400 h-16 w-full px-4 bg-white rounded-2xl focus:border-secondary items-center flex-row -space-x-48">
         <TextInput
-            className="flex-1 mt-0.5 text-white text-base font-pregular"
+            className="flex-1 mt-0.5 text-black text-base font-pregular"
             value={query}
             placeholder="Search for a video topic"
             placeholderTextColor='#CDCDE0'

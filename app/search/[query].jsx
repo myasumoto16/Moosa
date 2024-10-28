@@ -30,10 +30,10 @@ const Search = () => {
 
         ListHeaderComponent={() => (
           <View className="my-6 px-4">
-            <Text className="font-pmedium text-sm text-gray-100">
+            <Text className="font-pmedium text-sm text-gray-400">
               Search Results
             </Text>
-            <Text className="text-2xl font-psemibold text-white">
+            <Text className="text-2xl font-psemibold text-secondary-200">
               {query}
             </Text> 
 
@@ -48,13 +48,13 @@ const Search = () => {
               <SearchInput initialQuery={query}/>
             </View>
 
-            <View className="w-full flex-1 pt-5 pb-8">
+            {/* <View className="w-full flex-1 pt-5 pb-8">
               <Text className="text-gray-100 text-lg font-pregular mb-3">
                 Latest Videos 
               </Text>
 
               <Trending posts={ posts ?? []}/>
-            </View>
+            </View> */}
           </View>
 
         )}
